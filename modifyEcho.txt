@@ -1,0 +1,1 @@
+echo('foo'\n'bar'\n'baz'\n);
