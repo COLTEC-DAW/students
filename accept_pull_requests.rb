@@ -31,6 +31,11 @@ prs = client.pull_requests("#{ORG}/#{REPO}", state: 'open')
 prs.each do |pr|
   student = pr.user.login
   students << student
+
+  # TODO figure out why not all are mergeable
+  print "Merging #{pr.html_url}..."
+  client.merge_pull_request("#{ORG}/#{REPO}", pr.number)
+  puts "done"
 end
 
 students.each do |student|
