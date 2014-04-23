@@ -6,7 +6,7 @@ require 'pp'
 
 TOKEN = ENV['TOKEN'] || raise("Please set TOKEN.")
 ORG = 'advanced-js'
-REPO = 'pr-demo'
+REPO = 'students'
 # TODO create team per term?
 TEAM = 'students'
 
