@@ -8,12 +8,12 @@ TOKEN = ENV['TOKEN'] || raise("Please set TOKEN.")
 ORG = 'advanced-js'
 REPO = 'students'
 # TODO create team per term?
-TEAM = 'students'
+TEAM = ENV['TEAM'] || raise("Please set TEAM (should match folder name).")
 
 Octokit.auto_paginate = true
 client = Octokit::Client.new(access_token: TOKEN)
 
-
+# create team
 teams = client.organization_teams(ORG)
 team = teams.find {|t| t.name.downcase == TEAM }
 if team
@@ -24,9 +24,9 @@ else
   puts "done"
 end
 
-
 students = Set.new
 
+# merge pull requests
 prs = client.pull_requests("#{ORG}/#{REPO}", state: 'open')
 prs.each do |pr|
   student = pr.user.login
@@ -38,6 +38,13 @@ prs.each do |pr|
   puts "done"
 end
 
+# add students by existing filename
+Dir.glob("#{TEAM}/*.{md,txt}") do |file|
+  student = File.basename(file, File.extname(file))
+  students << student
+end
+
+# add the students to the team
 students.each do |student|
   print "Adding @#{student}..."
   result = client.add_team_member(team.id, student)
