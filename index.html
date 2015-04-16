@@ -2,6 +2,7 @@
 layout: default
 ---
 
+<h1>Advanced JavaScript Student Directory</h1>
 <!-- based on http://git.io/vvroy -->
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 <ul>
@@ -10,14 +11,18 @@ layout: default
   {% assign user = user_hash[1] %}
 
   <li class="js-student" data-username="{{username}}">
-    {% assign emoji = user.emoji | replace:'+','--' %}
-    <div>
-      <span class="name"><a href="https://github.com/{{ username }}" class="github-username">@{{ username }}</a> – {{ user.name }}</span>
-      <i class="em em-{{ emoji }}"></i>
-    </div>
-    <div>
-      {{ user.description }}
-    </div>
+    <a href="https://github.com/{{ username }}">
+      <!-- TODO add loading image -->
+      <img class="js-avatar" src=""/>
+      <div>
+        {{ user.name }}
+      </div>
+      <div>
+        <span class="github-username">@{{ username }}</span>
+        {% assign emoji = user.emoji | replace:'+','--' %}
+        <i class="em em-{{ emoji }}"></i>
+      </div>
+    </a>
   </li>
   {% endfor %}
 </ul>
