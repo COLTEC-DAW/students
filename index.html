@@ -9,7 +9,7 @@ layout: default
   {% assign username = user_hash[0] %}
   {% assign user = user_hash[1] %}
 
-  <li>
+  <li class="js-student" data-username="{{username}}">
     {% assign emoji = user.emoji | replace:'+','--' %}
     <div>
       <span class="name"><a href="https://github.com/{{ username }}" class="github-username">@{{ username }}</a> – {{ user.name }}</span>
