@@ -39,7 +39,7 @@ prs.each do |pr|
 end
 
 # add students by existing filename
-Dir.glob("#{TEAM}/*.{md,txt}") do |file|
+Dir.glob("_data/#{TEAM}/*.json") do |file|
   student = File.basename(file, File.extname(file))
   students << student
 end
