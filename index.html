@@ -16,11 +16,11 @@ layout: default
       <img class="js-avatar" src=""/>
       <div>
         {{ user.name }}
+        {% assign emoji = user.emoji | replace:'+','--' %}
+        <i class="em em-{{ emoji }}"></i>
       </div>
       <div>
         <span class="github-username">@{{ username }}</span>
-        {% assign emoji = user.emoji | replace:'+','--' %}
-        <i class="em em-{{ emoji }}"></i>
       </div>
     </a>
   </li>

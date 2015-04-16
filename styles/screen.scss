@@ -1,9 +1,15 @@
 ---
 ---
 
+$avatarSize: 135px;
+
 .js-student {
   float: left;
   list-style-type: none;
+
+  // make it a fixed size so that it's a consistent grid
+  height: $avatarSize + 65px;
+  width: $avatarSize + 20px;
 
   a {
     color: black;
@@ -12,9 +18,8 @@
 }
 
 .js-avatar {
-  $size: 135px;
-  height: $size;
-  width: $size;
+  height: $avatarSize;
+  width: $avatarSize;
 }
 
 .github-username {
