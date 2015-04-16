@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<!-- based on http://git.io/vvroy -->
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<ul>
+  {% for user_hash in site.data.spring_2015 %}
+  {% assign username = user_hash[0] %}
+  {% assign user = user_hash[1] %}
+
+  <li>
+    {% assign emoji = user.emoji | replace:'+','--' %}
+    <div>
+      <span class="name"><a href="https://github.com/{{ username }}" class="github-username">@{{ username }}</a> – {{ user.name }}</span>
+      <i class="em em-{{ emoji }}"></i>
+    </div>
+    <div>
+      {{ user.description }}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
