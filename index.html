@@ -19,7 +19,7 @@ layout: default
       <img class="js-avatar" src=""/>
       <div>
         {{ user.name }}
-        {% assign emoji = user.emoji | replace:'+','--' %}
+        {% assign emoji = user.emoji | replace:':','' | replace:'+','--' %}
         <i class="em em-{{ emoji }}"></i>
       </div>
       <div>
