@@ -3,6 +3,20 @@
 
 $avatarSize: 135px;
 
+body {
+  font-family: Helvetica, sans-serif;
+  margin: 50px;
+}
+
+a {
+  color: black;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .js-student {
   float: left;
   list-style-type: none;
@@ -12,7 +26,6 @@ $avatarSize: 135px;
   width: $avatarSize + 20px;
 
   a {
-    color: black;
     text-decoration: none;
   }
 }
