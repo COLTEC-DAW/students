@@ -47,7 +47,7 @@ end
 # add the students to the team
 students.each do |student|
   print "Adding @#{student}..."
-  result = client.add_team_member(team.id, student)
+  result = client.add_team_membership(team.id, student)
   if result
     puts "done"
   else
