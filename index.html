@@ -2,19 +2,19 @@
 layout: default
 ---
 
-<h1><a href="http://documentup.com/advanced-js/syllabus">Advanced JavaScript</a> Student Directory</h1>
-<p>
-  <a href="https://github.com/advanced-js/students">Add yourself!</a>
+<h1><a href="http://documentup.com/advanced-js/syllabus">{{site.class_name}}</h1>
+<p class="class-year">
+  <a href="{{site.class_link}}">{{site.class_year}}</a>
 </p>
 
 <!-- based on http://git.io/vvroy -->
-<ul>
-  {% assign students = site.data.fall_2015 | sort %}
+<div>
+  {% assign students = site.data.test sort: 'name' %}
   {% for user_hash in students %}
     {% assign username = user_hash[0] %}
     {% assign user = user_hash[1] %}
 
-    <li class="js-student" data-username="{{username}}">
+    <div class="js-student" data-username="{{ username }}">
       <a href="https://github.com/{{ username }}">
         <!-- TODO add loading image -->
         <img class="js-avatar" src=""/>
@@ -32,6 +32,6 @@ layout: default
           </p>
         </div>
       </a>
-    </li>
+    </div>
   {% endfor %}
-</ul>
+</div>
