@@ -9,7 +9,7 @@ layout: default
 
 <!-- based on http://git.io/vvroy -->
 <div>
-  {% assign students = site.data.test sort: 'name' %}
+  {% assign students = site.data sort: 'name' %}
   {% for user_hash in students %}
     {% assign username = user_hash[0] %}
     {% assign user = user_hash[1] %}
