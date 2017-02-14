@@ -1,3 +1,0 @@
-# DJ Rosenbaum
-
-Hello GitHub
