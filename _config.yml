@@ -1,7 +1,6 @@
 baseurl: ""
-class_name: "Class name"
-class_year: "0000"
-
+class_name: "Desenvolvimento de Aplicativos Web"
+class_year: "2016"
 
 exclude:
   - vendor
