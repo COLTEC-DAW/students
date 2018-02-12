@@ -1,7 +1,7 @@
 baseurl: ""
 class_name: "Desenvolvimento de Aplicações Web"
-class_year: "2017"
-repository_name: "students-2017"
+class_year: "2018"
+repository_name: "students"
 
 exclude:
   - vendor
