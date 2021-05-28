@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de programação</title>
+</head>
+<body>
+    <h1>Manual de programação</h1>
+   
+    <div>
+        <h2>Introdução a linguagem C</h2>
+        <p>Um programa em C é composto por um conjunto de funções. A função pela qual o programa começa a ser executado chama-se "main" que significa "principal". Um ponto-e-vírgula é colocado após cada comando do programa. Além disso, todo programa em C deve ser organizado para ser mais legível.</p>
+    </div>
+
+    <div>
+        <h2>O que são variáveis?</h2>
+        <p>Variável é uma posição de memória que pode ser identificada através de um nome. Elas mudam de valor após um comando de atribuição.</p>
+        <p>As variáveis podem ser utilizadas para realizar expressões matemáticas como soma, subtração, divisão, multiplicação, etc.</p>
+        
+        <h3>Exemplo de declaração de variável e expressão matemática</h3>
+    <pre>
+    #include&ltstdio.h&gt
+
+    int main () {
+        int a, b, soma; //declaração de uma variavel inteira
+        a = 2;  //recebe o valor 2
+        b = 4;  //recebe o valor 4
+        soma = a + b;   //recebe a soma das variaveis anteriores
+    }
+    </pre>
+    </div>
+
+    <div>
+        <h2>Estruturas condicionais</h2>
+        <h3>Condição</h3>
+        <p>Em C, uma condição nada mais é do que uma expressão cujo valor resultante precisa ser um número inteiro. Caso esse valor seja 0, a expressão é dada como falsa. Caso seja qualquer outro valor não-nulo, a expressão é dada como verdadeira. Uma estrutura condicional é representada pela variável "if" e, em alguns casos, "else".</p>
+        
+        <h3>Operadores de comparação</h3>
+        <p>Os operadores de comparação são usados para comparar dois valores. São tratados da mesma forma que os operadores aritméticos.</p>
+        
+        <h3>Exemplo de estrutura condicional</h3>
+    <pre>
+    #include&ltstdio.h&gt
+    
+    int main () {
+        int n;
+        printf("Digite um valor para n\n");
+        scanf("%d", &n);
+        if (n&gt0) {
+            printf("O número é positivo\n");
+            else if (n&lt0) {
+                printf("O número é negativo\n");
+            else if (n=0) {
+                printf ("O número é neutro\n");
+                }
+            }
+        }
+        return 0;
+    }
+    </pre>
+    </div>
+    
+    <div>
+        <h2>Estruturas de repetição</h2>
+        <h3>Vetores</h3>
+        <p>os vetores são uma estrutura de dados que podem armazenar uma determinada quantidade de valores do mesmo tipo.</p>
+    
+        <h3>O que é uma estrutura de repetição?</h3>
+        <p>Uma estrutura de repetição é uma estrutura que permite executar mais de uma vez o mesmo comando ou conjunto de comandos, de acordo com uma condição ou contador. É geralmente iniciada pelas variáveis "while", "do - while" ou "for".</p>
+    
+        <h3>Exemplo de estrutura de repetição</h3>
+    <pre>
+    #include&ltstdio.h&gt
+    
+    int main() {
+
+        int numero = 1;
+        while (numero &lt= 10) { //faz o loop
+            printf("%d\n" , numero); //imprime o numero
+            numero = numero + 1; //atualiza o numero em 1 depois que o numero eh impresso
+        }
+    }  
+    </pre>
+    </div>
+    
+    <div>
+        <h2>Como executar um programa em C?</h2>
+        <p>Para executar um programa em C, caso o usuário tenha um programa externo que compila automaticamente, como o codeblocks, basta rodar o compilador. Caso o usuário não tenha esse tipo de programa, basta digitar no prompt de comando: o compilador (gcc), nome do seu código fonte.c -o (que é a saída) nome do código final, apertar enter e digitar: ./nome do código final.out (para executar o programa).</p>
+
+        <h3>Exemplo de execução de código em C</h3>
+        <p>gcc nomedomeucodigo.c -o nomedomeucodigofinal
+        <br>
+        ./nomedomeucodigofinal.out</p>
+    </div>
+</body>
+</html>
