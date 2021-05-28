@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+
+    <h1>Formulário de Cadastro</h1>
+<form>
+    Dados Pessoais <br>
+    <label for="Codigo">Código</label> <input id:"Codigo" type="text" /> <br>
+    <label for="Nome">Nome</label> <input id:"Nome" type="text" /> <br>
+    <label for="Senha">Senha</label> <input id:"Senha" type="password" /> <br>
+    <label for="Sexo">Sexo</label> <input id:"Sexo" type="radio" name="Masculino" id="sim" value="sim" checked /><label for="sim"></label>Masculino</label>
+          <input id:"Sexo" type="radio" name="Masculino" id="nao" value="nao" /><label for="nao">Feminino</label> <br>
+    <label for="Idade">Idade</label> <input id:"Idade" type="text" /> <br>
+    Cartão de Crédito:
+    <select>
+        <option value="Mastercard">Mastercard</option>
+        <option value="Visa">Visa</option>
+        <option value="American Express">American Express</option>
+    </select>
+    <br>
+    Dados Profissionais <br>
+    Cargo:
+    <select>
+        <option value="Analista Junior">Analista Júnior</option>
+        <option value="Analista Pleno">Analista Pleno</option>
+        <option value="Analista Senior">Analista Sênior</option>
+    </select>
+    <br>
+    Dados Pessoais: <br>
+    <input type="checkbox" id="Fumante" name="Fumante" /><label for="Fumante">Fumante</label> <br>
+    <input type="checkbox" id="Pratica Exercicios Fisicos" name="Pratica Exercicios Fisicos" checked /><label for="Pratica Exercicios Fisicos">Prática Exercícios Físicos</label> <br>
+    <input type="checkbox" id="Consome Bebida Alcoolica" name="Consome Bebida Alcoolica" /><label for="Consome Bebida Alcoolica">Consome Bebida Alcoólica</label> <br>
+    <label for="Experiencias Profissionais"></label>Experiências Profissionais <br>
+    <textarea id="Experiencias Profissionais"></textarea> <br>
+    <input type="reset" value="Limpar" />
+    <input type="submit" value="Inserir" />
+</form>
+
+</body>
+</html>
