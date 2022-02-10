@@ -19,7 +19,9 @@ class: "2022"
         <div>
             <span class="github-username">@{{ username }}</span>
             {% assign emoji = user.emoji | replace:':','' | replace:'+','--' %}
-            <i class="em em-{{ emoji }}"></i>
+            {% if emoji != '' %}
+                <i class="em em-{{ emoji }}"></i>
+            {% endif %}
         </div>
         <div>
             <span class="js-name"></span>

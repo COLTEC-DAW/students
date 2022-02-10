@@ -1,0 +1,25 @@
+{
+  "name": "e00-tutorial-git-github",
+  "version": "1.0.0",
+  "description": "DAW students website",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/COLTEC-DAW/students.git"
+  },
+  "author": "João Eduardo Montandon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/COLTEC-DAW/students/issues"
+  },
+  "homepage": "https://github.com/COLTEC-DAW/students#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "jsdom": "^19.0.0"
+  }
+}
