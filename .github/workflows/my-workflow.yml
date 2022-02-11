@@ -23,8 +23,8 @@ jobs:
         with: 
           node-version: 16.x
           cache: 'npm'
+
       - name: Configuração das dependências
-        uses: ./.github/actions/public-grading
         run: npm install
 
       - name: Execução dos testes
