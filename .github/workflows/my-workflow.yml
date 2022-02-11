@@ -1,7 +1,7 @@
 name: Correção
 
 on:
-  push: 
+  pull-request: 
     branches: [ "gh-pages" ]
 
 env:
@@ -42,8 +42,8 @@ jobs:
             ${{ github.workspace }}/package.json
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-  grading:
-    name: Correção
+  grading-json-file:
+    name: "Correção: arquivo json"
     needs: setup
     runs-on: ubuntu-latest
 
