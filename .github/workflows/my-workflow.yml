@@ -8,8 +8,8 @@ env:
   JEKYLL_PATH: "${{ github.workspace }}/_site"
 
 jobs:
-  action:
-    name: Configuração
+  setup:
+    name: Setup do projeto
     runs-on: ubuntu-latest
 
     steps:
@@ -31,5 +31,22 @@ jobs:
       - name: Configuração das dependências
         run: npm install
 
-      - name: Execução dos testes
-        run: npm test
+      - name: Caching do projeto
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ github.workspace }}/
+          key: ${{ runner.os }}-$GITHUB_RUN_ID
+
+  grading:
+    name: Correção
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Arquivo adicionado
+        run: npm test -- -t "1."
+      - name: Descrição adicionada
+        run: npm test -- -t "2."
+      - name: Emoji adicionado
+        run: npm test -- -t "3."
