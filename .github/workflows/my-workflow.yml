@@ -37,6 +37,7 @@ jobs:
           path: |
             ${{ env.JEKYLL_PATH }}/
             ${{ github.workspace }}/tests/
+            ${{ github.workspace }}/node_modules/
             ${{ github.workspace }}/package-lock.json
             ${{ github.workspace }}/package.json
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
@@ -53,6 +54,7 @@ jobs:
           path: |
             ${{ env.JEKYLL_PATH }}/
             ${{ github.workspace }}/tests/
+            ${{ github.workspace }}/node_modules/
             ${{ github.workspace }}/package-lock.json
             ${{ github.workspace }}/package.json
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
