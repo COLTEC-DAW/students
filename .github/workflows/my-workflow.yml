@@ -12,11 +12,20 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v2
   
-      - name: 2a etapa
-        uses: ./.github/actions/public-grading
+      - name: Build Jekyll
+        run: |
+          docker run \
+          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
-      - name: Configurando dependências
+      - name: Preparação dos testes
+        uses: actions/setup-node@v2
+        with: 
+          node-version: 16.x
+          cache: 'npm'
+      - name: Configuração das dependências
+        uses: ./.github/actions/public-grading
         run: npm install
 
-      - name: Executando testes
+      - name: Execução dos testes
         run: npm test
