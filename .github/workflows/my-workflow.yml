@@ -1,0 +1,16 @@
+name: Correção
+
+on:
+  push: 
+    branches: [ "gh-pages" ]
+
+jobs:
+  action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./.github/actions/public-grading
+      - name: Configurando dependências
+        run: npm install
+      - name: Executando testes
+        run: npm test
