@@ -49,7 +49,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      continue-on-error: true
       - name: Carregando cache do projeto
         uses: actions/cache@v2
         with:
@@ -62,8 +61,11 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Arquivo adicionado
+        continue-on-error: true
         run: npm test -- -t "1."
       - name: Descrição adicionada
+        continue-on-error: true
         run: npm test -- -t "2."
       - name: Emoji adicionado
+        continue-on-error: true
         run: npm test -- -t "3."
