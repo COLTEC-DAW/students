@@ -6,7 +6,7 @@ const JEKYLL_PATH = process.env.JEKYLL_PATH;
 let $ = undefined;
 beforeAll(() => {
     let html = fs.readFileSync(JEKYLL_PATH + '/index.html');
-    console.log(html.toString());
+    console.log("PAGINA HTML: " + html.toString());
     let dom = new jsdom.JSDOM(html);
     $ = require('jquery')(dom.window);
 });

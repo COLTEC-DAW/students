@@ -21,8 +21,10 @@ jobs:
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ env.JEKYLL_PATH }}/:/srv/jekyll/_site \
-          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future" && \
-          sudo chown -R $(whoami):$(id -ng) ${{ env.JEKYLL_PATH }}
+          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+
+      - name: Ajustes de permissão
+        run: sudo chown -R $(whoami):$(id -ng) ${{ env.JEKYLL_PATH }}
 
       - name: Preparação dos testes
         uses: actions/setup-node@v2
