@@ -1,11 +1,11 @@
 const jsdom = require('jsdom');
 const fs = require('fs');
 
+const JEKYLL_PATH = process.env.JEKYLL_PATH;
 
-let htmlFile = undefined;
 let $ = undefined;
 beforeAll(() => {
-    let html = fs.readFileSync('../_site/index.html');
+    let html = fs.readFileSync(JEKYLL_PATH + '/index.html');
     let dom = new jsdom.JSDOM(html);
     $ = require('jquery')(dom.window);
 });

@@ -29,3 +29,5 @@ jobs:
 
       - name: Execução dos testes
         run: npm test
+        env:
+          JEKYLL_PATH: "${{ github.workspace }}/_site"
