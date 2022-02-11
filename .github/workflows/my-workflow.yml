@@ -2,6 +2,7 @@ name: Correção
 
 on:
   pull_request:
+    types: [ synchronize, opened, reopened]
     branches: [ "gh-pages" ]
 
 env:
@@ -48,6 +49,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      continue-on-error: true
       - name: Carregando cache do projeto
         uses: actions/cache@v2
         with:
