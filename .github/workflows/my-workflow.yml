@@ -44,6 +44,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Carregando cache do projeto
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ github.workspace }}/
+          key: ${{ runner.os }}-$GITHUB_RUN_ID
+          
       - name: Arquivo adicionado
         run: npm test -- -t "1."
       - name: Descrição adicionada
