@@ -4,8 +4,12 @@ on:
   push: 
     branches: [ "gh-pages" ]
 
+env:
+  JEKYLL_PATH: "${{ github.workspace }}/_site"
+
 jobs:
   action:
+    name: Configuração
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +19,7 @@ jobs:
       - name: Build Jekyll
         run: |
           docker run \
-          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          -v ${{ github.workspace }}:/srv/jekyll -v ${{ env.JEKYLL_PATH }}/:/srv/jekyll/_site \
           jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
       - name: Preparação dos testes
@@ -29,5 +33,3 @@ jobs:
 
       - name: Execução dos testes
         run: npm test
-        env:
-          JEKYLL_PATH: "${{ github.workspace }}/_site"

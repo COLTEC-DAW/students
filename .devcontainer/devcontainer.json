@@ -7,8 +7,8 @@
 	},	
 	
 	
-	"containerEnv": {
-		"FOLDER": "students-daw"
+	"remoteEnv": {
+		"JEKYLL_PATH": "${containerWorkspaceFolder}/_site"
 	},
 
 	// Set *default* container specific settings.json values on container create.

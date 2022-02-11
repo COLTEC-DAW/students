@@ -1,7 +1,0 @@
-name: "Testes públicos"
-
-description: "Conjunto de testes públicos"
-
-runs:
-  using: "docker"
-  image: "Dockerfile"

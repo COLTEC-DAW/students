@@ -5,3 +5,6 @@ repository_name: "students"
 
 exclude:
   - vendor
+  - tests
+  - node_modules
+  - package*.json
