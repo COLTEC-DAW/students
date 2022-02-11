@@ -2,7 +2,7 @@ name: Correção
 
 on:
   pull_request:
-    types: [ synchronize, opened, reopened]
+    types: [ synchronize, opened, reopened, labeled ]
     branches: [ "gh-pages" ]
 
 env:
@@ -61,11 +61,8 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Arquivo adicionado
-        continue-on-error: true
         run: npm test -- -t "1."
       - name: Descrição adicionada
-        continue-on-error: true
         run: npm test -- -t "2."
       - name: Emoji adicionado
-        continue-on-error: true
         run: npm test -- -t "3."
