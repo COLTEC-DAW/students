@@ -35,8 +35,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ${{ github.workspace }}/
-          key: ${{ runner.os }}-$GITHUB_RUN_ID
+            ${{ env.JEKYLL_PATH }}/
+            ${{ github.workspace }}/tests/
+            ${{ github.workspace }}/package-lock.json
+            ${{ github.workspace }}/package.json
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
   grading:
     name: Correção
@@ -48,9 +51,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ${{ github.workspace }}/
-          key: ${{ runner.os }}-$GITHUB_RUN_ID
-          
+            ${{ env.JEKYLL_PATH }}/
+            ${{ github.workspace }}/tests/
+            ${{ github.workspace }}/package-lock.json
+            ${{ github.workspace }}/package.json
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
       - name: Arquivo adicionado
         run: npm test -- -t "1."
       - name: Descrição adicionada
