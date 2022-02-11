@@ -9,8 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/actions/public-grading
+      - uses: actions/checkout@v1
+  
+      - name: 2a etapa
+        uses: ./.github/actions/public-grading
+
       - name: Configurando dependências
         run: npm install
+
       - name: Executando testes
         run: npm test

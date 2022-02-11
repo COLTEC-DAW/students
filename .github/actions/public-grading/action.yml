@@ -4,5 +4,4 @@ description: "Conjunto de testes públicos"
 
 runs:
   using: "docker"
-  image: "../../../.devcontainer/Dockerfile"
-  entrypoint: "bundle install && bundle exec jekyll build"
+  image: "Dockerfile"
