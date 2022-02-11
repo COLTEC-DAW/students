@@ -5,7 +5,7 @@ const fs = require('fs');
 let htmlFile = undefined;
 let $ = undefined;
 beforeAll(() => {
-    let html = fs.readFileSync('../../../_site/index.html');
+    let html = fs.readFileSync('../_site/index.html');
     let dom = new jsdom.JSDOM(html);
     $ = require('jquery')(dom.window);
 });
