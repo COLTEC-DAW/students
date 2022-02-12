@@ -50,6 +50,9 @@ jobs:
     name: "Tarefa: arquivo json"
     needs: setup
     runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        test: [ "1.", "2.", "3." ]
 
     steps:
       - name: Carregando cache do projeto
@@ -63,12 +66,6 @@ jobs:
             ${{ github.workspace }}/package.json
           key: ${{ runner.os }}-${{ github.run_id }}
 
-      - name: "Teste: Arquivo adicionado"
+      - name: "Testes: ${{ matrix.test }}"
         if: ${{ always() }}
-        run: npm test -- -t "1."
-      - name: "Teste: Descrição adicionada"
-        if: ${{ always() }}
-        run: npm test -- -t "2."
-      - name: "Teste: Emoji adicionado"
-        if: ${{ always() }}
-        run: npm test -- -t "3."
+        run: npm test -- -t "${{ matrix.test }}"
