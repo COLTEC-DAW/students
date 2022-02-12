@@ -2,7 +2,7 @@ name: Correção
 
 on:
   pull_request:
-    types: [ synchronize, opened, reopened, labeled ]
+    types: [ synchronize, opened, reopened ]
     branches: [ "gh-pages" ]
 
 env:
@@ -23,6 +23,9 @@ jobs:
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ env.JEKYLL_PATH }}/:/srv/jekyll/_site \
           jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
+      - name: Ajustes de permissão
+        run: sudo chown -R $(whoami):$(id -ng) ${{ env.JEKYLL_PATH }}
+
       - name: Preparação dos testes
         uses: actions/setup-node@v2
         with: 
@@ -41,7 +44,7 @@ jobs:
             ${{ github.workspace }}/node_modules/
             ${{ github.workspace }}/package-lock.json
             ${{ github.workspace }}/package.json
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-${{ github.run_id }}
 
   grading-json-file:
     name: "Correção: arquivo json"
@@ -58,11 +61,14 @@ jobs:
             ${{ github.workspace }}/node_modules/
             ${{ github.workspace }}/package-lock.json
             ${{ github.workspace }}/package.json
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-${{ github.run_id }}
 
       - name: Arquivo adicionado
+        if: ${{ always() }}
         run: npm test -- -t "1."
       - name: Descrição adicionada
+        if: ${{ always() }}
         run: npm test -- -t "2."
       - name: Emoji adicionado
+        if: ${{ always() }}
         run: npm test -- -t "3."
