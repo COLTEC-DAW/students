@@ -64,8 +64,11 @@ jobs:
           key: ${{ runner.os }}-${{ github.run_id }}
 
       - name: Arquivo adicionado
+        if: ${{ always() }}
         run: npm test -- -t "1."
       - name: Descrição adicionada
+        if: ${{ always() }}
         run: npm test -- -t "2."
       - name: Emoji adicionado
+        if: ${{ always() }}
         run: npm test -- -t "3."
