@@ -47,12 +47,12 @@ jobs:
           key: ${{ runner.os }}-${{ github.run_id }}
 
   grading-json-file:
-    name: "Tarefa: arquivo json"
+    name: "Exercício: Mural dos Estudantes"
     needs: setup
     runs-on: ubuntu-latest
     strategy:
       matrix: 
-        test: [ "1.", "2.", "3." ]
+        test: [ "T1", "T2", "T3" ]
 
     steps:
       - name: Carregando cache do projeto
@@ -66,6 +66,6 @@ jobs:
             ${{ github.workspace }}/package.json
           key: ${{ runner.os }}-${{ github.run_id }}
 
-      - name: "Testes: ${{ matrix.test }}"
+      - name: "${{ matrix.test }}"
         if: ${{ always() }}
         run: npm test -- -t "${{ matrix.test }}"
