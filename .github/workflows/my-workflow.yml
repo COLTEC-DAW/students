@@ -47,7 +47,7 @@ jobs:
           key: ${{ runner.os }}-${{ github.run_id }}
 
   grading-json-file:
-    name: "Correção: arquivo json"
+    name: "Tarefa: arquivo json"
     needs: setup
     runs-on: ubuntu-latest
 
@@ -63,12 +63,12 @@ jobs:
             ${{ github.workspace }}/package.json
           key: ${{ runner.os }}-${{ github.run_id }}
 
-      - name: Arquivo adicionado
+      - name: "Teste: Arquivo adicionado"
         if: ${{ always() }}
         run: npm test -- -t "1."
-      - name: Descrição adicionada
+      - name: "Teste: Descrição adicionada"
         if: ${{ always() }}
         run: npm test -- -t "2."
-      - name: Emoji adicionado
+      - name: "Teste: Emoji adicionado"
         if: ${{ always() }}
         run: npm test -- -t "3."
