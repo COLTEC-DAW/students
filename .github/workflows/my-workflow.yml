@@ -44,7 +44,7 @@ jobs:
             ${{ github.workspace }}/node_modules/
             ${{ github.workspace }}/package-lock.json
             ${{ github.workspace }}/package.json
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-${{ github.run_id }}
 
   grading-json-file:
     name: "Correção: arquivo json"
@@ -61,7 +61,7 @@ jobs:
             ${{ github.workspace }}/node_modules/
             ${{ github.workspace }}/package-lock.json
             ${{ github.workspace }}/package.json
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-${{ github.run_id }}
 
       - name: Arquivo adicionado
         run: npm test -- -t "1."
