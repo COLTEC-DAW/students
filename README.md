@@ -46,11 +46,11 @@ Ao abrir esse arquivo, você vai observar que ele possui a seguinte estrutura:
 ```
 
 Essas são justamente as informações que serão exibidas no mural!
-**Você irá adicionar suas informações em um arquivo próprio, dentro da pasta `2021`!**
+**Você irá adicionar suas informações em um arquivo próprio, porém dentro da pasta `2022`!**
 
 ## Criando o arquivo de seu usuário
 
-Acesse a pasta [`2021`](_data/2021) e crie um arquivo chamado `USERNAME.json`, **onde `USERNAME` representa seu usuário do GitHub**.
+Acesse a pasta [`2022`](_data/2022) e crie um arquivo chamado `USERNAME.json`, **onde `USERNAME` representa seu usuário do GitHub**.
 
 Uma vez criado o arquivo, crie e preencha os campos `introduction` e `emoji`, exatamente como no exemplo acima.
 Você pode consultar a lista de emojis disponíveis neste [link](https://emoji-css.afeld.me/).
