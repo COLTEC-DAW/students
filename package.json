@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "DAW students website",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:T1": "jest -t 'T1'",
+    "test:T2": "jest -t 'T2'",
+    "test:T3": "jest -t 'T3'"
   },
   "repository": {
     "type": "git",
