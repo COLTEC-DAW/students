@@ -29,14 +29,14 @@ jobs:
           bundle install && \
           bundle exec jekyll build
   
-      - name: Preparação dos testes
-        uses: actions/setup-node@v2
-        with: 
-          node-version: 16.x
-          cache: 'npm'
+      # - name: Preparação dos testes
+      #   uses: actions/setup-node@v2
+      #   with: 
+      #     node-version: 16.x
+      #     cache: 'npm'
 
-      - name: Configuração das dependências
-        run: npm install
+      # - name: Configuração das dependências
+      #   run: npm install
 
       - name: "Exercício Mural dos Estudantes"
         uses: education/autograding@v1
