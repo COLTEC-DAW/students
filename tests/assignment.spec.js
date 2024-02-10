@@ -2,7 +2,7 @@ const jsdom = require('jsdom');
 const fs = require('fs');
 
 console.log('JEKYLL_PATH: ' + process.env.JEKYLL_PATH);
-console.log('ENV: ' + process.env.NODE_ENV);
+console.log('ENV: ' + process.env);
 
 const JEKYLL_PATH = process.env.JEKYLL_PATH;
 
