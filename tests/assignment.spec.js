@@ -1,7 +1,10 @@
 const jsdom = require('jsdom');
 const fs = require('fs');
 
-const JEKYLL_PATH = process.env.JEKYLL_PATH || '../_site';
+console.log('JEKYLL_PATH: ' + process.env.JEKYLL_PATH);
+console.log('ENV: ' + process.env.NODE_ENV);
+
+const JEKYLL_PATH = process.env.JEKYLL_PATH;
 
 let $ = undefined;
 beforeAll(() => {
