@@ -1,0 +1,78 @@
+name: Correção
+
+on:
+  - push
+  - workflow_dispatch
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+env:
+  JEKYLL_PATH: "${{ github.workspace }}/_site"
+
+jobs:
+  setup:
+    name: Setup do projeto
+    runs-on: self-hosted
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Say Welcome, friend!
+        run: echo "Welcome to the AutoGrader!"
+
+      - name: Checkout do repositório
+        uses: actions/checkout@v2
+
+      - name: Build Page
+        run: |
+          bundle install && \
+          bundle exec jekyll build
+  
+      - name: Preparação dos testes
+        uses: actions/setup-node@v2
+        with: 
+          node-version: 16.x
+          cache: 'npm'
+
+      - name: Configuração das dependências
+        run: npm install
+
+      - name: "Exercício Mural dos Estudantes"
+        uses: education/autograding@v1
+        
+
+      # - name: Caching do projeto
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       ${{ env.JEKYLL_PATH }}/
+      #       ${{ github.workspace }}/tests/
+      #       ${{ github.workspace }}/node_modules/
+      #       ${{ github.workspace }}/package-lock.json
+      #       ${{ github.workspace }}/package.json
+      #     key: ${{ runner.os }}-${{ github.run_id }}
+
+  # grading-json-file:
+  #   name: "Exercício: Mural dos Estudantes"
+  #   needs: setup
+  #   runs-on: self-hosted
+  #   strategy:
+  #     matrix: 
+  #       test: [ "T1", "T2", "T3" ]
+
+  #   steps:
+  #     - name: Carregando cache do projeto
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: |
+  #           ${{ env.JEKYLL_PATH }}/
+  #           ${{ github.workspace }}/tests/
+  #           ${{ github.workspace }}/node_modules/
+  #           ${{ github.workspace }}/package-lock.json
+  #           ${{ github.workspace }}/package.json
+  #         key: ${{ runner.os }}-${{ github.run_id }}
+
+  #     - name: "${{ matrix.test }}"
+  #       if: ${{ always() }}
+  #       run: npm test -- -t "${{ matrix.test }}"
