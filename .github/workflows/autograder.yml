@@ -25,12 +25,17 @@ jobs:
 
       - name: Checkout do repositório
         uses: actions/checkout@v2
-  
-      - name: Build Jekyll
+
+      - name: Build Page
         run: |
-          docker run \
-          -v ${{ github.workspace }}:/srv/jekyll -v ${{ env.JEKYLL_PATH }}/:/srv/jekyll/_site \
-          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+          bundle install && \
+          bundle exec jekyll build
+  
+      # - name: Build Jekyll
+      #   run: |
+      #     docker run \
+      #     -v ${{ github.workspace }}:/srv/jekyll -v ${{ env.JEKYLL_PATH }}/:/srv/jekyll/_site \
+      #     jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
       - name: Ajustes de permissão
         run: sudo chown -R $(whoami):$(id -ng) ${{ env.JEKYLL_PATH }}
