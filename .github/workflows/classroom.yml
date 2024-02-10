@@ -41,7 +41,7 @@ jobs:
       - name: "Exercício Mural dos Estudantes"
         uses: education/autograding@v1
         env:
-          JEKYLL_PATH: ${{ vars.JEKYLL_PATH }}
+          JEKYLL_PATH: "${{ github.workspace }}/_site"
         
 
       # - name: Caching do projeto
