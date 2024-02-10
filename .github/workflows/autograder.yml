@@ -4,6 +4,12 @@ on:
   pull_request:
     types: [ synchronize, opened, reopened ]
     branches: [ "gh-pages" ]
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Teste a ser executado"
+        required: true
+        default: "T1"
 
 env:
   JEKYLL_PATH: "${{ github.workspace }}/_site"
@@ -11,9 +17,12 @@ env:
 jobs:
   setup:
     name: Setup do projeto
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
+    
     steps:
+      - name: Say Welcome, friend!
+        run: echo "Welcome to the AutoGrader!"
+
       - name: Checkout do repositório
         uses: actions/checkout@v2
   
