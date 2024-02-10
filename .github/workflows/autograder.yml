@@ -63,7 +63,7 @@ jobs:
   grading-json-file:
     name: "Exercício: Mural dos Estudantes"
     needs: setup
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix: 
         test: [ "T1", "T2", "T3" ]
