@@ -1,8 +1,9 @@
 const jsdom = require('jsdom');
 const fs = require('fs');
 
-console.log('JEKYLL_PATH: ' + process.env.JEKYLL_PATH);
-console.log('ENV: ' + process.env);
+for (let key in process.env) {
+    console.log(`${key}: ${process.env[key]}`);
+}
 
 const JEKYLL_PATH = process.env.JEKYLL_PATH;
 
