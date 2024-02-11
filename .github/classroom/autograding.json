@@ -1,29 +1,9 @@
 {
     "tests": [
       {
-        "name": "T1",
+        "name": "Testes",
         "setup": "npm install",
-        "run": "npm run test:T1",
-        "input": "",
-        "output": "",
-        "comparison": "exact",
-        "timeout": 10,
-        "points": null
-      },
-      {
-        "name": "T2",
-        "setup": "npm install",
-        "run": "npm run test:T2",
-        "input": "",
-        "output": "",
-        "comparison": "exact",
-        "timeout": 10,
-        "points": null
-      },
-      {
-        "name": "T3",
-        "setup": "npm install",
-        "run": "npm run test:T3",
+        "run": "npm run test",
         "input": "",
         "output": "",
         "comparison": "exact",
