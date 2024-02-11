@@ -1,11 +1,7 @@
 const jsdom = require('jsdom');
 const fs = require('fs');
 
-for (let key in process.env) {
-    console.log(`${key}: ${process.env[key]}`);
-}
-
-const JEKYLL_PATH = process.env.JEKYLL_PATH;
+const JEKYLL_PATH = process.env.JEKYLL_PATH || `${process.env.PWD}/_site`;
 
 let $ = undefined;
 beforeAll(() => {
