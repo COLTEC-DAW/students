@@ -35,8 +35,8 @@ jobs:
       #     node-version: 16.x
       #     cache: 'npm'
 
-      # - name: Configuração das dependências
-      #   run: npm install
+      - name: Configuração das dependências
+        run: npm install
 
 
       - name: "Exercício Mural dos Estudantes"
