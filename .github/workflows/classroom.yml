@@ -14,40 +14,30 @@ env:
 
 jobs:
   setup:
-    name: Setup do projeto
+    name: Correção
     runs-on: self-hosted
     if: github.actor != 'github-classroom[bot]'
     steps:
-      - name: Say Welcome, friend!
-        run: echo "Welcome to the AutoGrader!"
-
-      - name: Checkout do repositório
+      - name: Checkout 
         uses: actions/checkout@v2
 
-      - name: Build Page
+      - name: Build
         run: |
           bundle install && \
           bundle exec jekyll build
   
-      # - name: Preparação dos testes
-      #   uses: actions/setup-node@v2
-      #   with: 
-      #     node-version: 16.x
-      #     cache: 'npm'
-
-      - name: Configuração das dependências
+      - name: Dependencies
         run: npm install
 
-
-      - name: "Exercício Mural dos Estudantes"
+      - name: Test
         run: npm test
       
-      - name: "Test reporter"
+      - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: JEST Tests                  # Name of the check run which will be created
-          path: '*.xml'                     # Path to test results (inside artifact .zip)
+          name: Relatório da Correção                  # Name of the check run which will be created
+          path: 'reports/*.xml'                     # Path to test results (inside artifact .zip)
           reporter: jest-junit              # Format of test results
           fail-on-error: false
           fail-on-empty: false
