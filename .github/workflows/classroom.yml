@@ -45,7 +45,7 @@ jobs:
           JEKYLL_PATH: "${{ github.workspace }}/_site"
         
       - uses: actions/upload-artifact@v3  # upload test results
-          if: success() || failure()        # run this step even if previous step failed
+          if: success() || failure()       
           with:
             name: test-results
             path: reports/jest-junit.xml
