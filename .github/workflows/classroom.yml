@@ -1,48 +1,65 @@
 name: Correção
 
 on:
-  - push
-  - workflow_dispatch
+  pull_request:
+    types: [opened, synchronize]
+  
 
 permissions:
   checks: write
   actions: read
   contents: read
+  pull-requests: write
 
 env:
   JEKYLL_PATH: "${{ github.workspace }}/_site"
 
 jobs:
   setup:
-    name: Setup do projeto
+    name: Correção
     runs-on: self-hosted
     if: github.actor != 'github-classroom[bot]'
     steps:
-      - name: Say Welcome, friend!
-        run: echo "Welcome to the AutoGrader!"
-
-      - name: Checkout do repositório
+      - name: Checkout 
         uses: actions/checkout@v2
 
-      - name: Build Page
+      - name: Build
         run: |
           bundle install && \
           bundle exec jekyll build
   
-      # - name: Preparação dos testes
-      #   uses: actions/setup-node@v2
-      #   with: 
-      #     node-version: 16.x
-      #     cache: 'npm'
+      - name: Dependencies
+        run: npm install
 
-      # - name: Configuração das dependências
-      #   run: npm install
+      - name: Test
+        run: npm test
+      
+      # - name: Report Full
+      #   uses: dorny/test-reporter@v1
+      #   if: always()
+      #   with:
+      #     name: Relatório da Correção                  # Name of the check run which will be created
+      #     path: 'reports/*.xml'                     # Path to test results (inside artifact .zip)
+      #     reporter: jest-junit              # Format of test results
+      #     fail-on-error: false
+      #     fail-on-empty: false
 
-      - name: "Exercício Mural dos Estudantes"
-        uses: education/autograding@v1
-        env:
-          JEKYLL_PATH: "${{ github.workspace }}/_site"
-        
+      - name: Report Summary
+        id: reportSummary
+        uses: test-summary/action@v2
+        with:
+          paths: "reports/**/*.xml"
+          output: "reports/summary.md"
+          show: "all"
+        if: always()
+
+      - name: Pull Request Comment
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          filePath: "reports/summary.md"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: always()
+
 
       # - name: Caching do projeto
       #   uses: actions/cache@v2
