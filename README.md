@@ -11,7 +11,7 @@ Você pode acessar essas informações diretamente a partir da página da discip
 Nesta prática, você irá exercitar seus conhecimentos a respeito do Git & GitHub para incluir suas informações no mural da sua turma.
 
 
-## Fork & Clone do projeto
+## Fork & Clone do Projeto
 
 O primeiro passo consiste em fazer uma cópia do projeto para a sua máquina.
 Para isso, você precisará fazer primeiramente o fork do projeto. 
@@ -35,28 +35,28 @@ As informações presentes nesse diretório serão processadas pelo Jekyll e ent
 
 ### O arquivo `jemaf.json`
 
-Ao acessar a pasta `2021`, você vai observar a presença de um arquivo, chamado [`jemaf.json`](_data/2021/jemaf.json).
+Ao acessar a pasta `2023`, você vai observar a presença de um arquivo, chamado [`jemaf.json`](_data/2023/jemaf.json).
 Ao abrir esse arquivo, você vai observar que ele possui a seguinte estrutura: 
 
 ```
 {
     "introduction": "Olá, jovens!",
-    "emoji": "passenger_ship"
+    "emoji": "rocket"
 }
 ```
 
 Essas são justamente as informações que serão exibidas no mural!
-**Você irá adicionar suas informações em um arquivo próprio, porém dentro da pasta `2022`!**
+**Você irá adicionar suas informações em um arquivo próprio, porém dentro da pasta `2024`!**
 
 ## Criando o arquivo de seu usuário
 
-Acesse a pasta [`2022`](_data/2022) e crie um arquivo chamado `USERNAME.json`, **onde `USERNAME` representa seu usuário do GitHub**.
+Acesse a pasta [`2024`](_data/2024) e crie um arquivo chamado `USERNAME.json`, **onde `USERNAME` representa seu usuário do GitHub**.
 
 Uma vez criado o arquivo, crie e preencha os campos `introduction` e `emoji`, exatamente como no exemplo acima.
 Você pode consultar a lista de emojis disponíveis neste [link](https://emoji-css.afeld.me/).
 **ATENÇÃO: Remova o prefixo 'em-' do emoji escolhido (o Jekyll insere esse prefixo automaticamente para você), veja no exemplo acima**.
 
-**Tarefa: Crie um arquivo .json com o nome do seu usuário do GitHub e preencha as informações conforme exemplo acima.**
+**Tarefa: Crie um arquivo `json` com o nome do seu usuário do GitHub e preencha as informações conforme exemplo acima.**
 
 ## Commit e Push
 
@@ -69,4 +69,4 @@ Em seguida, realize o push das modificações para sincronizá-las com o GitHub.
 ## Entrega
 
 Realize a entrega do trabalho utilizando o mecanismo de pull request.
-Aguarde o feedback do professor com relação ao Pull Request; assim que ele der o :thumbsup:, seu usuário estará presente no mural da disciplina :)
+Aguarde o feedback do professor com relação ao Pull Request; assim que ele der o :+1:, seu usuário estará presente no mural da disciplina :)
