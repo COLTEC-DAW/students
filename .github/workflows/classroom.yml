@@ -31,22 +31,23 @@ jobs:
 
       - name: Test
         run: npm test
+      
+      # - name: Report Full
+      #   uses: dorny/test-reporter@v1
+      #   if: always()
+      #   with:
+      #     name: Relatório da Correção                  # Name of the check run which will be created
+      #     path: 'reports/*.xml'                     # Path to test results (inside artifact .zip)
+      #     reporter: jest-junit              # Format of test results
+      #     fail-on-error: false
+      #     fail-on-empty: false
 
       - name: Report Summary
         uses: test-summary/action@v2
         with:
           paths: "reports/**/*.xml"
+          # output: "summary.md"
         if: always()
-      
-      - name: Report Full
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Relatório da Correção                  # Name of the check run which will be created
-          path: 'reports/*.xml'                     # Path to test results (inside artifact .zip)
-          reporter: jest-junit              # Format of test results
-          fail-on-error: false
-          fail-on-empty: false
 
       # - name: Caching do projeto
       #   uses: actions/cache@v2

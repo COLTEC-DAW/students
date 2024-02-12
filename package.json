@@ -28,7 +28,7 @@
     "outputName": "jest-junit.xml",
     "ancestorSeparator": " › ",
     "uniqueOutputName": "false",
-    "suiteNameTemplate": "{filepath}",
+    "suiteNameTemplate": "Relatório de Correção",
     "classNameTemplate": "{classname}",
     "titleTemplate": "{title}"
   }
