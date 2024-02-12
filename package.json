@@ -24,7 +24,7 @@
     "jsdom": "^19.0.0"
   },
   "jest-junit": {
-    "outputDirectory": "reports",
+    "outputDirectory": "",
     "outputName": "jest-junit.xml",
     "ancestorSeparator": " › ",
     "uniqueOutputName": "false",
