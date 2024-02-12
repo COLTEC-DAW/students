@@ -53,7 +53,7 @@ jobs:
         if: always()
 
       - name: Pull Request Comment
-        uses: thollander/actions-comment-pull-request@v1
+        uses: thollander/actions-comment-pull-request@v2
         with:
           filePath: "reports/summary.md"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
