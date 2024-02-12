@@ -43,10 +43,16 @@ jobs:
         uses: education/autograding@v1
         env:
           JEKYLL_PATH: "${{ github.workspace }}/_site"
+        
+      - uses: actions/upload-artifact@v3  # upload test results
+          if: success() || failure()        # run this step even if previous step failed
+          with:
+            name: test-results
+            path: reports/jest-junit.xml
       
       - name: "Test reporter"
         uses: dorny/test-reporter@v1
-        if: ${{ always() }}
+        if: always()
         with:
           artifact: test-results            # artifact name
           name: JEST Tests                  # Name of the check run which will be created
