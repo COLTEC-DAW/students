@@ -31,8 +31,14 @@ jobs:
 
       - name: Test
         run: npm test
+
+      - name: Report Summary
+        uses: test-summary/action@v2
+        with:
+          paths: "reports/**/*.xml"
+        if: always()
       
-      - name: Test Report
+      - name: Report Full
         uses: dorny/test-reporter@v1
         if: always()
         with:
