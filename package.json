@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "DAW students website",
   "scripts": {
-    "test": "jest",
-    "test:T1": "jest -t 'T1'",
-    "test:T2": "jest -t 'T2'",
-    "test:T3": "jest -t 'T3'"
+    "test": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "repository": {
     "type": "git",
@@ -19,10 +16,20 @@
   },
   "homepage": "https://github.com/COLTEC-DAW/students#readme",
   "devDependencies": {
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "jest-junit": "^16.0.0"
   },
   "dependencies": {
     "jquery": "^3.6.0",
     "jsdom": "^19.0.0"
+  },
+  "jest-junit": {
+    "outputDirectory": "reports",
+    "outputName": "jest-junit.xml",
+    "ancestorSeparator": " › ",
+    "uniqueOutputName": "false",
+    "suiteNameTemplate": "Relatório de Correção",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
   }
 }
