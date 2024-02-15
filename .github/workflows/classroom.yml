@@ -26,7 +26,6 @@ jobs:
 
       - name: Build
         run: |
-          bundle install && \
           bundle exec jekyll build
   
       - name: Dependencies
