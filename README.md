@@ -1,4 +1,3 @@
-
 # Exercício 00: Mural dos Estudantes 
 
 Professor: João Eduardo Montandon
